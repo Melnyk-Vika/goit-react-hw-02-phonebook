@@ -18,11 +18,11 @@ export class App extends Component {
   };
 
   addContact = ({ name, number }) => {
-   const names = this.state.contacts.find(contact => contact.name);
-   if (names.indexOf(name) >= 0) {
-     alert(name + ' is already in contacts');
-     return;
-   }
+    const isExist = this.state.contacts.find(contact => contact.name === name);
+    if (isExist ) {
+      alert(name + ' is already in contacts');
+      return;
+    }
    this.setState(prevState => {
      return {
        contacts: [{ name, number, id: nanoid() }, ...prevState.contacts],
