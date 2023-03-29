@@ -18,7 +18,7 @@ export class App extends Component {
   };
 
   addContact = ({ name, number }) => {
-   const names = this.state.contacts.map(contact => contact.name);
+   const names = this.state.contacts.find(contact => contact.name);
    if (names.indexOf(name) >= 0) {
      alert(name + ' is already in contacts');
      return;
